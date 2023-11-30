@@ -1,8 +1,11 @@
 
 
-function PokemonCard(props) {
-  console.log('props', props);
-  const pokemon = pokemonList[0];
+
+function PokemonCard(pokemon) {
+
+  console.log(pokemon);
+
+
   return (
     <figure>
       {pokemon.imgSrc ? <img src={pokemon.imgSrc} /> : <p>???</p>}
@@ -11,7 +14,6 @@ function PokemonCard(props) {
 
   );
 }
-
 
 
 export default PokemonCard;

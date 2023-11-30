@@ -3,6 +3,7 @@ import PokemonCard from "./components/PokemonCard";
 
 
 import './index.css';
+
 const pokemonList = [
     {
         name: "bulbasaur",
@@ -14,14 +15,18 @@ const pokemonList = [
     },
 ];
 
-function App() {
+function App(pokemon) {
+    pokemon = pokemonList[0];
+    console.log(pokemon);
     return (
         <div>
-            <PokemonCard />
-        </div>
+            <PokemonCard pokemon={pokemonList[0]} />
 
+        </div>
     );
+
 }
+
 
 export default App;
 
