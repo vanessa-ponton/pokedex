@@ -1,7 +1,7 @@
 
 
 
-function PokemonCard(pokemon) {
+function PokemonCard({ pokemon }) {
 
   console.log(pokemon);
 
