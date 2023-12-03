@@ -2,6 +2,12 @@ function PokemonCard(props) {
   const { pokemon } = props;
   console.log(props);
 
+  PokemonCard.propTypes = {
+    pokemon: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      imgSrc: PropTypes.string.isOptionnal,
+    }).isRequired,
+  }
 
   return (
     <figure>
