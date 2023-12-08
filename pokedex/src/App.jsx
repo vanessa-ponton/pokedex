@@ -1,10 +1,10 @@
 
 import PokemonCard from "./components/PokemonCard";
 import './index.css';
-import { usePokemonIndex } from "react";
+import { useState } from "react";
 
 function App() {
-    const [pokemonIndex, setPokemonIndex] = usePokemonIndex(0);
+    const [pokemonIndex, setPokemonIndex] = useState(0);
 
     const pokemonList = [
         {
@@ -13,22 +13,40 @@ function App() {
                 "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
         },
         {
+            name: "charmander",
+            imgSrc:
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+        },
+        {
+            name: "squirtle",
+            imgSrc:
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+        },
+        {
+            name: "pikachu",
+            imgSrc:
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+        },
+        {
             name: "mew",
         },
     ];
-    const pokemonSelected = pokemonList[0];
+
+
     const handleClick = () => {
-        setPokemonIndex("suivant" + 1);
-        setPokemonIndex("précédent" - 1);
+        setPokemonIndex(pokemonIndex + 1);
+    }
+    const handleClicked = () => {
+        setPokemonIndex(pokemonIndex - 1);
     }
 
     return (
         <div>
-            <PokemonCard pokemon={pokemonSelected} />
-
-            <p>{pokemonIndex} ${"suivant"}, ${"précédent"}</p>
-            <button onClick={handleClick}>Click</button>
-
+            <PokemonCard pokemonSelected={pokemonList[pokemonIndex]} />
+            {pokemonIndex < pokemonList.length - 1 &&
+                <button onClick={handleClick}>suivant</button>}
+            {pokemonIndex > 0 &&
+                <button onClick={handleClicked}>précédent</button>}
         </div>
     );
 
@@ -36,7 +54,4 @@ function App() {
 
 
 export default App;
-
-
-
-
+/* */
