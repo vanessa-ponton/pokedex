@@ -4,8 +4,6 @@ function PokemonCard(props) {
   const { pokemonSelected } = props;
   console.log(props);
 
-
-
   return (
     <figure>
       {pokemonSelected.imgSrc ? (<img src={pokemonSelected.imgSrc} />) : (<p>???</p>)}

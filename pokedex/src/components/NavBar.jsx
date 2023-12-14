@@ -5,21 +5,22 @@
 function NavBar(props) {
     const { pokemonIndex, setPokemonIndex, pokemonList } = props;
 
-    const handleClick = () => {
-        setPokemonIndex(pokemonIndex + 1);
-    }
-    const handleClicked = () => {
-        setPokemonIndex(pokemonIndex - 1);
-    }
+    /*const removeProps = (pokemonList) => {
+        setPokemonIndex(pokemonList.filter((pokemonIndex.name) => (pokemonIndex.img)  !== (pokemonIndex.name)));
+      };*/
 
     return (
         <div>
-            {pokemonIndex < pokemonList.length - 1 &&
-                <button onClick={handleClick}>suivant</button>}
-            {pokemonIndex > 0 &&
-                <button onClick={handleClicked}>précédent</button>}
+            {pokemonList.map((pokemonIndex) => (
+                <li key={pokemonIndex.name}>
+                    {pokemonIndex.img}
+                    <button onClick={() => remove(pokemonIndex.img)}>{pokemonIndex.name}</button>
+                </li>
+            ))};
         </div>
-    );
+
+
+    )
 }
 
 export default NavBar;
