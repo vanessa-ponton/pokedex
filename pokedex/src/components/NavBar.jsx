@@ -1,26 +1,24 @@
 /* eslint-disable react/prop-types */
 
-
-
 function NavBar(props) {
-    const { pokemonIndex, setPokemonIndex, pokemonList } = props;
+  const { pokemonIndex, setPokemonIndex, pokemonList } = props;
 
-    /*const removeProps = (pokemonList) => {
-        setPokemonIndex(pokemonList.filter((pokemonIndex.name) => (pokemonIndex.img)  !== (pokemonIndex.name)));
-      };*/
-
-    return (
-        <div>
-            {pokemonList.map((pokemonIndex) => (
-                <li key={pokemonIndex.name}>
-                    {pokemonIndex.img}
-                    <button onClick={() => remove(pokemonIndex.img)}>{pokemonIndex.name}</button>
-                </li>
-            ))};
+  const handleClick = (e) => {
+    setPokemonIndex(e.target.value);
+    console.log(e.target.value);
+  };
+  return (
+    <div>
+      {pokemonList.map((pokemonIndex, i) => (
+        <div key={i}>
+          {pokemonIndex.img}
+          <button value={i} onClick={handleClick}>
+            {pokemonIndex.name}
+          </button>
         </div>
-
-
-    )
+      ))}
+    </div>
+  );
 }
 
 export default NavBar;
